@@ -2,15 +2,15 @@ import { Button } from "@/components/ui/button"
 
 export function App() {
   return (
-    <div className="flex min-h-svh p-6">
+    <div className="flex min-h-svh">
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>
           <h1 className="font-medium">Project ready!</h1>
           <p>You may now add components and start building.</p>
           <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2 bg-primary-foreground">Button</Button>
+          <Button className="mt-2 bg-green-300">Button</Button>
         </div>
-        <div className="bg-red-50 font-mono text-xs text-muted-foreground">
+        <div className="text-muted-foreground bg-red-50 font-mono text-xs">
           (Press <kbd>d</kbd> to toggle dark mode)
         </div>
       </div>
