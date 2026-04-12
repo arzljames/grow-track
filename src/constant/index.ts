@@ -1,54 +1,66 @@
 import {
-  Activity02Icon,
   Baby01Icon,
+  BabyBottleIcon,
   DashboardCircleAddIcon,
-  HealthIcon,
+  DiaperIcon,
+  Doctor01Icon,
+  InjectionIcon,
+  SleepingIcon,
 } from "@hugeicons/core-free-icons"
 
 export const navigationLinkItems = [
   {
-    label: "Overview",
-    path: "/",
-    icon: DashboardCircleAddIcon,
-    children: [],
+    sectionTitle: null,
+    children: [
+      {
+        name: "Overview",
+        path: "/",
+        icon: DashboardCircleAddIcon,
+      },
+    ],
   },
   {
-    label: "Babies",
-    path: "/babies",
-    icon: Baby01Icon,
-    children: [],
+    sectionTitle: null,
+    children: [
+      {
+        label: "Babies",
+        path: "/babies",
+        icon: Baby01Icon,
+      },
+    ],
   },
   {
     label: "Activity",
-    path: null,
-    icon: Activity02Icon,
     children: [
       {
         name: "Feed",
         path: "/activity/feed-tracker",
+        icon: BabyBottleIcon,
       },
       {
         name: "Diaper",
         path: "/activity/diaper-tracker",
+        icon: DiaperIcon,
       },
       {
         name: "Sleep",
         path: "/activity/sleep-tracker",
+        icon: SleepingIcon,
       },
     ],
   },
   {
     label: "Health",
-    path: null,
-    icon: HealthIcon,
     children: [
       {
         name: "Vaccine Schedule",
         path: "/health/vaccine-schedule",
+        icon: InjectionIcon,
       },
       {
         name: "Checkup",
         path: "/activity/Checkup",
+        icon: Doctor01Icon,
       },
     ],
   },
