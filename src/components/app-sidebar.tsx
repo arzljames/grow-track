@@ -9,15 +9,23 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import { navigationLinkItems } from "@/constant"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Link, useRouterState } from "@tanstack/react-router"
 
 export function AppSidebar() {
+  const { isMobile, setOpenMobile } = useSidebar()
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   })
+
+  const handleNavigation = () => {
+    if (isMobile) {
+      setOpenMobile(false)
+    }
+  }
 
   return (
     <Sidebar>
@@ -62,7 +70,7 @@ export function AppSidebar() {
                           isActive={isActive}
                           className="transition-all duration-200 hover:translate-x-1 hover:bg-zinc-100 data-[active=true]:bg-zinc-100 data-[active=true]:font-semibold"
                         >
-                          <Link to={item.path}>
+                          <Link to={item.path} onClick={handleNavigation}>
                             {item.icon ? (
                               <HugeiconsIcon icon={item.icon} strokeWidth={1.8} />
                             ) : null}
