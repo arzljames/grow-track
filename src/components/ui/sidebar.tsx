@@ -263,7 +263,7 @@ function SidebarTrigger({
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
       variant="ghost"
-      size="icon-sm"
+      size="icon-lg"
       className={cn(className)}
       onClick={(event) => {
         onClick?.(event)
@@ -271,7 +271,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <HugeiconsIcon icon={Menu09Icon} strokeWidth={2} />
+      <HugeiconsIcon icon={Menu09Icon} size={25} strokeWidth={2} />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

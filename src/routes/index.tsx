@@ -1,4 +1,3 @@
-import { Calendar } from "@/components/ui/calendar"
 import {
   ChartContainer,
   ChartTooltip,
@@ -13,7 +12,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import {
-  ArtificialIntelligence01FreeIcons,
   ArtificialIntelligence08Icon,
   BabyBottleIcon,
   DiaperIcon,
@@ -55,23 +53,6 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-function getCurrentWeekRange(date: Date) {
-  const start = new Date(date)
-  const day = start.getDay()
-  const diff = day === 0 ? -6 : 1 - day
-
-  start.setDate(start.getDate() + diff)
-  start.setHours(0, 0, 0, 0)
-
-  const end = new Date(start)
-  end.setDate(start.getDate() + 6)
-  end.setHours(23, 59, 59, 999)
-
-  return { from: start, to: end }
-}
-
-const currentWeek = getCurrentWeekRange(new Date())
-
 export const Route = createFileRoute("/")({
   component: Index,
 })
@@ -79,13 +60,19 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <div className="flex w-full flex-row gap-4">
+      <div className="my-6">
+        <h1 className="font-semibold">Welcome back Mommy</h1>
+        <p className="text-sm text-gray-600">
+          Here is your baby tracker overview for today
+        </p>
+      </div>
+      <div className="flex w-full flex-col gap-4 md:flex-row">
         <div className="flex flex-1 flex-col">
           <div className="flex w-full flex-1 justify-between gap-4">
-            <Card className="flex-1 bg-[#67c49f] ring-0">
+            <Card className="flex-1 bg-[#67c49f] ring-1 ring-[#4d9b7c]">
               <CardContent className="flex flex-row items-baseline">
                 <HugeiconsIcon
-                  size={26}
+                  size={28}
                   icon={BabyBottleIcon}
                   strokeWidth={1.5}
                   color="#FFF"
@@ -97,7 +84,7 @@ function Index() {
               </CardContent>
             </Card>
 
-            <Card className="flex-1 bg-[#6EC1E4] ring-0">
+            <Card className="flex-1 bg-[#6EC1E4] ring-1 ring-[#55a8cc]">
               <CardContent className="flex flex-row items-baseline">
                 <HugeiconsIcon
                   size={26}
@@ -112,7 +99,7 @@ function Index() {
               </CardContent>
             </Card>
 
-            <Card className="flex-1 bg-[#FFBFA3] ring-0">
+            <Card className="flex-1 bg-[#FFBFA3] ring-1 ring-[#dda38a]">
               <CardContent className="flex flex-row items-baseline">
                 <HugeiconsIcon
                   size={26}
@@ -128,7 +115,7 @@ function Index() {
             </Card>
           </div>
 
-          <Card className="mt-4 border-0 bg-white shadow-none ring-1 ring-gray-100">
+          <Card className="mt-4 border-0 bg-white shadow-none ring-1 ring-gray-200">
             <CardHeader className="mb-0">
               <CardTitle>Weekly Activity</CardTitle>
               <CardDescription>Last 7 days</CardDescription>
@@ -172,7 +159,7 @@ function Index() {
           </Card>
         </div>
 
-        <Card className="max-h-150 w-full max-w-80 overflow-y-auto bg-white ring-0">
+        <Card className="max-h-150 w-full max-w-none overflow-y-auto bg-white ring-1 ring-gray-200 md:max-w-80">
           <CardHeader>
             <HugeiconsIcon
               icon={ArtificialIntelligence08Icon}
@@ -183,8 +170,8 @@ function Index() {
               Predicts baby sleep, feeding, and diaper patterns.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-6 pt-0">
-            <Item className="rounded-none border-b border-b-gray-200">
+          <CardContent className="wpt-0 flex flex-col gap-2">
+            <Item className="bg-gray-100">
               <ItemMedia variant="image">
                 <HugeiconsIcon icon={BabyBottleIcon} />
               </ItemMedia>
@@ -195,7 +182,7 @@ function Index() {
                 </ItemDescription>
               </ItemContent>
             </Item>
-            <Item className="rounded-none border-b border-b-gray-200">
+            <Item className="bg-gray-100">
               <ItemMedia variant="image">
                 <HugeiconsIcon icon={DiaperIcon} />
               </ItemMedia>
@@ -204,7 +191,7 @@ function Index() {
                 <ItemDescription>Wet diaper change needed soon</ItemDescription>
               </ItemContent>
             </Item>
-            <Item className="rounded-none">
+            <Item className="bg-gray-100">
               <ItemMedia variant="image">
                 <HugeiconsIcon icon={SleepingIcon} />
               </ItemMedia>
@@ -216,8 +203,7 @@ function Index() {
           </CardContent>
         </Card>
       </div>
-
-      <div className="mt-4 flex flex-row gap-4">
+      <div className="mt-4 flex flex-col gap-4 md:flex-row">
         <Card className="flex min-h-50 flex-1 ring-0">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
